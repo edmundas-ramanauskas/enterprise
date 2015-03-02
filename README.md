@@ -1,1 +1,1 @@
-# enterprise-app
+# enterprise application
