@@ -25,13 +25,8 @@ public class DefaultServlet extends AbstractServlet {
         
         logger.info("Executing DefaultServlet.doGet");
         
-        EventProducer.sendEvent(new EventMessage("Hello JMS!"));
-        render("/WEB-INF/html/default.html", request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        _404(request, response);
+//        EventProducer.sendEvent(new EventMessage("Hello JMS!"));
+        
+        render("default.html", request, response);
     }
 }

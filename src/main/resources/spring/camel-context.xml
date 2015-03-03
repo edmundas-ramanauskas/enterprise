@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        
+<!--        <route id="timerToInRoute">
+            <from uri="timer:fireEvent?period=5s"/>
+            <transform>
+                <simple>Message at ${date:now:yyyy-MM-dd HH:mm:ss}</simple>
+            </transform>
+            <to uri="activemq:queue:${queue.enterprise.event}"/>
+        </route>-->
+
+        <route id="systemEventQueue">
+            <from uri="activemq:queue:${queue.system.events}"/>
+            <to uri="bean:eventListener"/>
+        </route>
+
+    </camelContext>
+    
+    <bean id="eventListener" class="com.enterprise.app.jms.listeners.EventListener" />
+
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="${activemq.brokerURL}"/>
+    </bean>
+
+</beans>

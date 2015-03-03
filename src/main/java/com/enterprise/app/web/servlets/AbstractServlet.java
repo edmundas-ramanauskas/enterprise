@@ -10,23 +10,25 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author edmundas
  */
-abstract public class AbstractServlet extends HttpServlet {
+abstract class AbstractServlet extends HttpServlet {
+    
+    private static final String BASE_PATH = "/WEB-INF/html/";
     
     protected final void _404(HttpServletRequest request, HttpServletResponse response) 
             throws IOException, ServletException {
         response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        render("/WEB-INF/html/404.html", request, response);
+        render("404.html", request, response);
     }
     
     protected final void _500(HttpServletRequest request, HttpServletResponse response) 
             throws IOException, ServletException {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        render("/WEB-INF/html/500.html", request, response);
+        render("500.html", request, response);
     }
     
     protected final void render(String path, HttpServletRequest request, HttpServletResponse response) 
             throws IOException, ServletException {
-        request.getRequestDispatcher(path).forward(request, response);
+        request.getRequestDispatcher(BASE_PATH.concat(path)).forward(request, response);
     }
 
     @Override
