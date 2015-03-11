@@ -1,14 +1,11 @@
 package com.marketplace.app.domain.repositories;
 
 import com.marketplace.app.domain.entities.Application;
-import java.util.List;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author edmundas
  */
-public interface ApplicationRepository extends Repository<Application, Long> {
-    
-    List<Application> findAll();
+public interface ApplicationRepository extends JpaRepository<Application, Long> {
 }
