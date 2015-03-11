@@ -13,6 +13,6 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 public interface ApplicationApi {
     @GET
-    @Path("/test")
+    @Path("/applications")
     List<Application> applications();
 }

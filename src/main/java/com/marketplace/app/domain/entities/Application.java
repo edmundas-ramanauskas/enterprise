@@ -1,5 +1,6 @@
 package com.marketplace.app.domain.entities;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.persistence.Id;
  * @author edmundas
  */
 @Entity
-public class Application {
+public class Application implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;

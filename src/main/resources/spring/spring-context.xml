@@ -10,8 +10,8 @@
     <context:property-placeholder location="classpath:settings.properties"/>
     
     <!--<import resource="camel-broker.xml"/>-->
-    <import resource="camel-context.xml"/>
-    <import resource="datasource.xml"/>
+    <import resource="camel-config.xml"/>
+    <import resource="jpa-config.xml"/>
     <import resource="cxf-config.xml"/>
 
 </beans>
