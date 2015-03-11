@@ -1,4 +1,4 @@
-package com.enterprise.app.web.filters;
+package com.marketplace.app.web.filters;
 
 import java.io.IOException;
 import javax.servlet.Filter;

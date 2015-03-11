@@ -1,4 +1,4 @@
-package com.enterprise.app.jms.producers;
+package com.marketplace.app.jms.producers;
 
 /**
  *

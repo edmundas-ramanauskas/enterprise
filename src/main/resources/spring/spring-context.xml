@@ -9,15 +9,9 @@
     
     <context:property-placeholder location="classpath:settings.properties"/>
     
-    <bean id="systemProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath:settings.properties</value>
-            </list>
-        </property>
-    </bean>
-    
-    <import resource="camel-broker.xml"/>
+    <!--<import resource="camel-broker.xml"/>-->
     <import resource="camel-context.xml"/>
+    <import resource="datasource.xml"/>
+    <import resource="cxf-config.xml"/>
 
 </beans>

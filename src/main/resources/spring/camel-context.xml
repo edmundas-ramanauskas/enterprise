@@ -2,12 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:context="http://www.springframework.org/schema/context" 
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
-
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
+        
+        <propertyPlaceholder id="properties" location="classpath:settings.properties"/>
         
 <!--        <route id="timerToInRoute">
             <from uri="timer:fireEvent?period=5s"/>
@@ -17,14 +20,14 @@
             <to uri="activemq:queue:${queue.enterprise.event}"/>
         </route>-->
 
-        <route id="systemEventQueue">
-            <from uri="activemq:queue:${queue.system.events}"/>
+        <route id="systemEventsQueue">
+            <from uri="activemq:queue:{{queue.system.events}}"/>
             <to uri="bean:eventListener"/>
         </route>
 
     </camelContext>
     
-    <bean id="eventListener" class="com.enterprise.app.jms.listeners.EventListener" />
+    <bean id="eventListener" class="com.marketplace.app.jms.listeners.EventListener" />
 
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="${activemq.brokerURL}"/>

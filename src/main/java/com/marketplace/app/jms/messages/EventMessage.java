@@ -1,4 +1,4 @@
-package com.enterprise.app.jms.messages;
+package com.marketplace.app.jms.messages;
 
 import java.io.Serializable;
 

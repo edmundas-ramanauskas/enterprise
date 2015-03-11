@@ -1,4 +1,4 @@
-package com.enterprise.app.web.servlets;
+package com.marketplace.app.web.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -29,6 +29,12 @@ abstract class AbstractServlet extends HttpServlet {
     protected final void render(String path, HttpServletRequest request, HttpServletResponse response) 
             throws IOException, ServletException {
         request.getRequestDispatcher(BASE_PATH.concat(path)).forward(request, response);
+    }
+    
+    protected final void output(String content, HttpServletRequest request, HttpServletResponse response) 
+            throws IOException, ServletException {
+        
+        response.getWriter().write(content);
     }
 
     @Override

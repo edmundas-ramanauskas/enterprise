@@ -1,4 +1,4 @@
-package com.enterprise.app.jms.listeners;
+package com.marketplace.app.jms.listeners;
 
 /**
  *
