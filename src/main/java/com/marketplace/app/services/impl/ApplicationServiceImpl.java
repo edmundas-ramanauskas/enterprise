@@ -25,12 +25,4 @@ public class ApplicationServiceImpl implements ApplicationService {
     public Application getApplication(long id) {
         return applicationRepository.findOne(id);
     }
-    
-    public void setApplicationRepository(ApplicationRepository applicationRepository) {
-        this.applicationRepository = applicationRepository;
-    }
-    
-    public ApplicationRepository getApplicationRepository() {
-        return applicationRepository;
-    }
 }
