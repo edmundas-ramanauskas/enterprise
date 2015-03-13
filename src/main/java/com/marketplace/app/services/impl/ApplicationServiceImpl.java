@@ -5,7 +5,10 @@ import com.marketplace.app.domain.repositories.ApplicationRepository;
 import com.marketplace.app.services.ApplicationService;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,14 +22,8 @@ public class ApplicationServiceImpl implements ApplicationService {
     private ApplicationRepository applicationRepository;
     
     @Override
-    public List<Application> getApplications() {
-        List<Application> applications = new ArrayList<Application>();
-        if(applicationRepository == null) {
-            System.out.println("Repository null");
-        } else {
-            applications.addAll(applicationRepository.findAll());
-        }
-        return applications;
+    public Page<Application> getApplications(int page) {
+        return applicationRepository.findAll(new PageRequest(page-1, 10));
     }
     
     public void setApplicationRepository(ApplicationRepository applicationRepository) {

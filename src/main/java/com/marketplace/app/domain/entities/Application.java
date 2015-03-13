@@ -6,12 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author edmundas
  */
 @Entity
+@Table(name = "applications")
 public class Application implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -34,6 +36,4 @@ public class Application implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    
-    
 }

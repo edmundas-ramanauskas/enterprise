@@ -19,7 +19,7 @@
 
     <bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
 	
-    <jaxrs:server id="marketplaceRestApi" address="/rest">
+    <jaxrs:server id="marketplaceRestApi" address="/rs">
         <jaxrs:serviceBeans>
             <ref bean="applicationApi"/>
         </jaxrs:serviceBeans>

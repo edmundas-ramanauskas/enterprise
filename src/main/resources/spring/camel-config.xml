@@ -10,7 +10,7 @@
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
         
-        <propertyPlaceholder id="properties" location="classpath:settings.properties"/>
+        <propertyPlaceholder id="properties" location="classpath:application.properties"/>
         
 <!--        <route id="timerToInRoute">
             <from uri="timer:fireEvent?period=5s"/>
@@ -21,7 +21,7 @@
         </route>-->
 
         <route id="systemEventsQueue">
-            <from uri="activemq:queue:{{queue.system.events}}"/>
+            <from uri="activemq:queue:{{app.queue.system.events}}"/>
             <to uri="bean:eventListener"/>
         </route>
 
@@ -30,7 +30,7 @@
     <bean id="eventListener" class="com.marketplace.app.jms.listeners.EventListener" />
 
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-        <property name="brokerURL" value="${activemq.brokerURL}"/>
+        <property name="brokerURL" value="${app.activemq.brokerURL}"/>
     </bean>
 
 </beans>
