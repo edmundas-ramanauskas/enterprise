@@ -9,8 +9,12 @@ marketplace.config(function($routeProvider) {
         templateUrl: 'public/html/about.html'
     })
     .when('/apps', {
-        templateUrl: 'public/html/software/items.html',
-        controller: 'SoftwareController'
+        templateUrl: 'public/html/software/list.html',
+        controller: 'AppList'
+    })
+    .when('/apps/:id', {
+        templateUrl: 'public/html/software/view.html',
+        controller: 'AppView'
     })
     .otherwise({
         redirectTo:'/'

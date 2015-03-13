@@ -26,6 +26,11 @@ public class ApplicationServiceImpl implements ApplicationService {
         return applicationRepository.findAll(new PageRequest(page-1, 10));
     }
     
+    @Override
+    public Application getApplication(long id) {
+        return applicationRepository.findOne(id);
+    }
+    
     public void setApplicationRepository(ApplicationRepository applicationRepository) {
         this.applicationRepository = applicationRepository;
     }
