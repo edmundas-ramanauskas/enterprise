@@ -20,7 +20,6 @@ public interface PublicApi {
     @GET
     @Path("/applications")
     Page<Application> getApplications(@DefaultValue("1") @QueryParam("page") int page);
-    
     @GET
     @Path("/application/{id}")
     Application getApplication(@PathParam("id") long id);

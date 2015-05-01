@@ -48,3 +48,18 @@ tools.controller('Md5Checksum', ['$scope', 'storage', function($scope, storage) 
         this.decoder = '';
     }
 }]);
+
+tools.controller('Sha1Checksum', ['$scope', 'storage', function($scope, storage) {
+    $scope.checksum = function() {
+        if(this.encoder) {
+            this.decoder = CryptoJS.SHA1(this.encoder).toString();
+        } else {
+            this.decoder = '';
+        }
+        storage.set('sha1-checksum', this.decoder);
+    }
+    $scope.clear = function() {
+        this.encoder = '';
+        this.decoder = '';
+    }
+}]);

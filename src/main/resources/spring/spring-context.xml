@@ -11,7 +11,7 @@
     
     <import resource="spring-security.xml"/>
     <import resource="spring-servlets.xml"/>
-    <import resource="camel-config.xml"/>
+    <!--<import resource="camel-config.xml"/>-->
     <import resource="jpa-config.xml"/>
     <import resource="cxf-config.xml"/>
 

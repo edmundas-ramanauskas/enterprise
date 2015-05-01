@@ -28,11 +28,18 @@ marketplace.config(function($routeProvider) {
         templateUrl: 'public/html/tools/md5-checksum.html',
         controller: 'Md5Checksum'
     })
+    .when('/tools/sha1-checksum', {
+        templateUrl: 'public/html/tools/sha1-checksum.html',
+        controller: 'Sha1Checksum'
+    })
     .when('/tools/base64-encoder', {
         templateUrl: 'public/html/tools/base64-encoder.html'
     })
     .when('/tools/image-encoder', {
         templateUrl: 'public/html/tools/image-encoder.html'
+    })
+    .when('/tools/json-validator', {
+        templateUrl: 'public/html/tools/json-validator.html'
     })
     .otherwise({
         redirectTo:'/'
@@ -67,6 +74,14 @@ marketplace.directive('zeroClipboard', ['storage', function(storage) {
         var clipboard = new ZeroClipboard(element[0]);
         clipboard.on('copy', function(event) {
             event.clipboardData.setData('text/plain', storage.get(attr.zeroClipboard));
+        });
+    }
+}]);
+
+marketplace.directive('codemirror', [function() {
+    return function(scope, element, attr) {
+        CodeMirror.fromTextArea(element[0], {
+            lineNumbers: true
         });
     }
 }]);
